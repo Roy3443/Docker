@@ -17,6 +17,12 @@ spec:
       containers:
       - name: python-app
         image: nginx:1.14.2
+        env:
+          - name: DB-PORT
+            valueFrom:
+              configMapKeyRef:
+                name: test-cm
+                key: db-port
         ports:
-        - containerPort: 80
+        - containerPort: 8000
 
